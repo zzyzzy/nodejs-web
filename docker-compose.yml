@@ -14,7 +14,7 @@ services:
     - ./db:/docker-entrypoint-initdb.d
 
   postgres_exporter:
-    image: prom/postgres-exporter
+    image: quay.io/prometheuscommunity/postgres-exporter
     ports:
       - "9187:9187"
     environment:
