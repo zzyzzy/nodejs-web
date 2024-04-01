@@ -13,6 +13,13 @@ services:
     - pg-data:/var/lib/postgresql/data
     - ./db:/docker-entrypoint-initdb.d
 
+  postgres_exporter:
+    image: prom/postgres-exporter
+    ports:
+      - "9187:9187"
+    environment:
+      DATA_SOURCE_NAME: postgresql://dockeruser:abc123!@postgres:5432/pets    
+
   pgadmin:
     image: dpage/pgadmin4
     ports:
